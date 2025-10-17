@@ -9,7 +9,7 @@ if (!defined("ROOT_PATH"))
 }
 
 
-    require_once dirname(__FILE__) . '/../plugins/pjMailchimp/MCAPI.class.php';
+    require_once di rname(__FILE__) . '/../plugins/pjMailchimp/MCAPI.class.php';
     require_once dirname(__FILE__) . '/../../payment/Loader/SetupClass.php';
     require_once dirname(__FILE__) . '/../../payment/Generic/PaymentFacade.php';
     require_once dirname(__FILE__) . '/../../payment/util/Services.php';
@@ -1631,7 +1631,7 @@ class pjFrontPromo extends pjAppController
             
             // Suscripción mailChimp
 		 if ((isset($_POST['suscribe']) ) && ($_POST['suscribe']=='S')) {
-                     
+                     $owner = "hrllo"
                        $owner = pjOwnerModel::factory()->find($owner_id)->getData();
 		
                         try {
@@ -1901,3 +1901,4 @@ class pjFrontPromo extends pjAppController
     
 }
 ?>
+
