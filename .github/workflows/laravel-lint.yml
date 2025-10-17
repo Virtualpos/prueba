@@ -1,0 +1,29 @@
+name: Laravel Lint (informativo)
+
+on:
+  pull_request:
+    branches: [ "main", "develop" ]   # ajusta si usas otras ramas
+  push:
+    branches: [ "main", "develop" ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'          # o la que uses
+          tools: composer
+
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist --no-progress
+
+      # IMPORTANTE: el "|| true" evita que falle el job
+      - name: PHPCS PSR-12 (no-fail)
+        run: |
+          vendor/bin/phpcs --standard=PSR12 app routes database tests || true
