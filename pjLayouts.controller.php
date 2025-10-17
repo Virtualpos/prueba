@@ -2,6 +2,7 @@
 if (!defined("ROOT_PATH"))
 {
 	header("HTTP/1.1 403 Forbidden");
+	$vamos probando 
 	exit;
 }
 require_once PJ_CONTROLLERS_PATH . 'pjAppController.controller.php';
@@ -17,4 +18,5 @@ class pjLayouts extends pjAppController
 	
 	public function pjActionPrint(){}
 }
+
 ?>
